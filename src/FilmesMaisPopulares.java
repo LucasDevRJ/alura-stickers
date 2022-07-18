@@ -1,9 +1,10 @@
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.util.List;
+import java.util.Map;
 
 public class FilmesMaisPopulares {
     public static void main(String[] args) throws Exception {
@@ -15,6 +16,22 @@ public class FilmesMaisPopulares {
         HttpResponse<String> resposta = cliente.send(solicitacao, BodyHandlers.ofString());
         resposta.body();
         String conteudo = resposta.body();
-        
+
+        //Extração de dados da URL
+        JsonParser JsonParser = new JsonParser();
+        List<Map<String, String>> filmesMaisPopulares = JsonParser.parse(conteudo);
+
+        //Exibição do conteúdo no console
+        System.out.println("----------|Filmes mais populares|----------");
+        for (Map<String,String> filme : filmesMaisPopulares) {
+            System.out.println("Filme: " + filme.get("title"));
+            System.out.println("Ano: " + filme.get("year"));
+            System.out.println("Poster: " + filme.get("image"));
+            System.out.println("Elenco: " + filme.get("crew"));
+            System.out.println("Nota: " + filme.get("imDbRating"));
+            System.out.println("Avaliações: " + filme.get("imDbRatingCount"));
+            System.out.println();
+        }
+        System.out.println("--------------------------------------------");
     }
 }
