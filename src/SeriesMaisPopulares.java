@@ -22,9 +22,9 @@ public class SeriesMaisPopulares {
         List<Map<String, String>> filmesMaisPopulares = JsonParser.parse(conteudo);
 
         //Exibição do conteúdo no console
-        System.out.println("----------|Séries mais populares|----------");
+        System.out.println("----------|\u001b[37m\u001b[44mSéries mais populares\u001b[0m|----------");
         for (Map<String,String> filme : filmesMaisPopulares) {
-            System.out.println("Série: " + filme.get("title"));
+            System.out.println("\u001b[33m \u001b[47mSérie: " + filme.get("title") );
             System.out.println("Ano: " + filme.get("year"));
             System.out.println("Poster: " + filme.get("image"));
             System.out.println("Elenco: " + filme.get("crew"));

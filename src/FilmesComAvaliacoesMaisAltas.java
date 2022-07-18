@@ -9,7 +9,8 @@ import java.util.Map;
 public class FilmesComAvaliacoesMaisAltas {
     public static void main(String[] args) throws Exception {
         //fazer uma conexão HTTP e buscar os top 250 filmes
-        String url = "https://api.mocki.io/v2/549a5d8b";
+        String apiKey = System.getenv("API_KEY");
+        String url = "https://imdb-api.com/en/API/Top250Movies/" + apiKey;
         URI endereco = URI.create(url);
         HttpClient cliente = HttpClient.newHttpClient();
         HttpRequest solicitacao = HttpRequest.newBuilder(endereco).GET().build();
@@ -23,15 +24,16 @@ public class FilmesComAvaliacoesMaisAltas {
         System.out.println("Primeiro filme: " + listaDeFilmes.get(0));
         //exibir e manipular os dados
         System.out.println("----------|Filmes com avaliações mais altas|----------");
-        for (Map<String, String> filme : listaDeFilmes) {
-            System.out.println("Filme: " + filme.get("title"));
-            System.out.println("Ano de lançamento: " + filme.get("year"));
-            System.out.println("Link do poster: " + filme.get("image"));
+        System.out.println();
+        for (Map<String,String> filme : listaDeFilmes) {
+            System.out.println("\u001b[33m\u001b[47mSérie: " + filme.get("title") + "\u001b[m");
+            System.out.println("Ano: " + filme.get("year"));
+            System.out.println("Poster: " + filme.get("image"));
             System.out.println("Elenco: " + filme.get("crew"));
-            System.out.println("Nota final: " + filme.get("imDbRating"));
-            System.out.println("Notas dadas: " + filme.get("imDbRatingCount"));
+            System.out.println("Nota: " + filme.get("imDbRating"));
+            System.out.println("Avaliações: " + filme.get("imDbRatingCount"));
             System.out.println();
         }
-        System.out.println("--------------------------------------------------------");
+        System.out.println("--------------------------------------------");
     }
 }
