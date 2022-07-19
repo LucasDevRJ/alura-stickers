@@ -1,18 +1,15 @@
-## Getting Started
+![LucasDevRJ - Capa](https://user-images.githubusercontent.com/95040236/147415952-3be56c26-f85d-4489-bb6b-e32128ac7ce3.png)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+<h1 align="center">Alura Stickers</h1>
 
-## Folder Structure
+# Sobre
 
-The workspace contains two folders by default, where:
+Alura Stickers é um projeto feito a partir da imersão Java da Alura. As imersões são dividas em aulas com seus respectivos conteúdos, leia a lista abaixo:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Conteúdos
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+* Aula01 - Consumindo uma API de filmes com Java;
+* Aula02 - Gerando figurinhas para WhatsApp;
+* Aula 03 - Ligando as pontas, refatoração e orientação a objetos;
+* Aula 04 - Criando nossa própria API com Spring
+* Aula 05 - Publicando nossa API no Cloud
