@@ -23,7 +23,7 @@ public class FilmesComAvaliacoesMaisAltas {
         System.out.println("Total de filmes: " + listaDeFilmes.size());
         System.out.println("Primeiro filme: " + listaDeFilmes.get(0));
         //exibir e manipular os dados
-        System.out.println("----------|Filmes com avaliações mais altas|----------");
+        System.out.println("----------|\u001b[33m\u001b[47mFilmes com avaliações mais altas\u001b[m|----------");
         System.out.println();
         for (Map<String,String> filme : listaDeFilmes) {
             System.out.println("\u001b[33m\u001b[47mSérie: " + filme.get("title") + "\u001b[m");

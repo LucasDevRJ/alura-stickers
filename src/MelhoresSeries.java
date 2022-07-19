@@ -9,7 +9,8 @@ import java.util.Map;
 public class MelhoresSeries {
     public static void main(String[] args) throws Exception {
         //Conexão HTTP buscando os filmes mais populares
-        String url = "https://imdb-api.com/en/API/Top250TVs/k_l6qb542b";
+        String apiKey = System.getenv("API_KEY");
+        String url = "https://imdb-api.com/en/API/Top250TVs/" + apiKey;
         URI endereco = URI.create(url);
         HttpClient cliente = HttpClient.newHttpClient();
         HttpRequest solicitacao = HttpRequest.newBuilder(endereco).GET().build();
@@ -22,7 +23,7 @@ public class MelhoresSeries {
         List<Map<String, String>> filmesMaisPopulares = JsonParser.parse(conteudo);
 
         //Exibição do conteúdo no console
-        System.out.println("----------|Melhores Séries|----------");
+        System.out.println("----------|\u001b[33m\u001b[47mMelhores séries\u001b[m|----------");
         System.out.println();
         for (Map<String,String> filme : filmesMaisPopulares) {
             System.out.println("\u001b[33m\u001b[47mSérie: " + filme.get("title") + "\u001b[m");

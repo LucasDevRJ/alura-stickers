@@ -9,7 +9,8 @@ import java.util.Map;
 public class SeriesMaisPopulares {
     public static void main(String[] args) throws Exception {
         //Conexão HTTP buscando os filmes mais populares
-        String url = "https://imdb-api.com/en/API/MostPopularTVs/k_l6qb542b";
+        String apiKey = System.getenv("API_KEY");
+        String url = "https://imdb-api.com/en/API/MostPopularTVs/" + apiKey;
         URI endereco = URI.create(url);
         HttpClient cliente = HttpClient.newHttpClient();
         HttpRequest solicitacao = HttpRequest.newBuilder(endereco).GET().build();
@@ -22,9 +23,10 @@ public class SeriesMaisPopulares {
         List<Map<String, String>> filmesMaisPopulares = JsonParser.parse(conteudo);
 
         //Exibição do conteúdo no console
-        System.out.println("----------|\u001b[37m\u001b[44mSéries mais populares\u001b[0m|----------");
+        System.out.println("----------|\u001b[33m\u001b[47mSéries mais populares\u001b[m|----------");
+        System.out.println();
         for (Map<String,String> filme : filmesMaisPopulares) {
-            System.out.println("\u001b[33m \u001b[47mSérie: " + filme.get("title") );
+            System.out.println("\u001b[33m\u001b[47mSérie: " + filme.get("title") + "\u001b[m");
             System.out.println("Ano: " + filme.get("year"));
             System.out.println("Poster: " + filme.get("image"));
             System.out.println("Elenco: " + filme.get("crew"));
